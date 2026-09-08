@@ -11,7 +11,9 @@ Read the affected code and callers, then extend the existing path. Resolve local
 
 **Reuse.** Before writing technical helpers, check existing project code, JDK and Spring APIs, and declared libraries such as Apache Commons. Use a matching API directly. Write custom mechanics only for a concrete semantic or operational gap; keep business policy explicit. A wrapper should add domain meaning or adaptation, not merely rename a library call.
 
-Choose the smallest complete change that delivers the requested behavior. New abstractions, dependencies, configuration, and adjacent cleanup need a present requirement. Preserve established contracts and technical choices even when another design is personally preferable.
+**Clarity.** Write for the next reader: intention-revealing names, cohesive responsibilities, explicit control flow, and visible effects and failure paths. Keep changes local and follow the language and framework's idioms. Apply SOLID, DRY, and YAGNI as heuristics: abstract shared knowledge, preserve distinct business rules, and add only structure justified by current requirements. Prefer the simplest implementation that remains easy to read and change.
+
+New dependencies, configuration, and adjacent cleanup still need a present requirement. Preserve established contracts and technical choices.
 
 If a concrete contradiction prevents correct implementation, identify the exact conflict and continue any independent work. Ask only for information that materially changes the required outcome; routine implementation choices remain yours.
 
