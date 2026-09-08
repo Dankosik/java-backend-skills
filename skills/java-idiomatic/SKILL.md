@@ -9,8 +9,8 @@ description: "Contracts. Use when writing or simplifying Java values, methods, o
 
 Choose the representation that tells that story directly. Records fit component-based values; ordinary classes fit identity or controlled mutation. Remember that records and collection copies are shallow. Sealed types fit genuinely closed alternatives. Streams fit understandable transformations; loops often make effects and branching clearer. Optional should clarify absence, not spread wrappers through every layer.
 
-Challenge each proposed “modernization”: which decision becomes easier for the next reader? If it only trades one familiar spelling for another, leave it. Prefer existing code and the JDK before adding helpers, dependencies, or abstraction layers.
+**Reuse.** Prefer existing JDK, Spring, or library operations over handwritten utility logic when their semantics match. Keep wrappers only when they add domain meaning or adaptation. Judge modernization by clearer caller contracts, not a different spelling.
 
-Preserve the details a tidy rewrite can accidentally change: lazy evaluation, null acceptance, collection mutability, equality, rounding, time boundaries, and exception causes. Never put required effects in a stream stage that may be skipped.
+Preserve the details a tidy rewrite can accidentally change: lazy evaluation, null acceptance, collection order and mutability, equality, rounding, time boundaries, and exception causes. Never put required effects in a stream stage that may be skipped.
 
 Finish with the smallest change that makes intent explicit and a focused check of the contract it could have disturbed. State actual validation; avoid unrelated style churn.

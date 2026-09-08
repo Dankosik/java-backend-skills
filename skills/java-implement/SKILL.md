@@ -7,7 +7,9 @@ description: "Execution. Use to turn clear requirements, a specification, a tech
 
 **Execution.** When the intended behavior is clear, implement it directly. Treat supplied requirements and settled technical decisions as constraints, not invitations to redesign.
 
-Read the affected code and callers, then extend the existing path. Resolve ordinary local details using the project's Java version, conventions, and available libraries. Keep those decisions proportional to the task; they do not require a separate design exercise.
+Read the affected code and callers, then extend the existing path. Resolve local details using the project's Java version and conventions.
+
+**Reuse.** Before writing technical helpers, check existing project code, JDK and Spring APIs, and declared libraries such as Apache Commons. Use a matching API directly. Write custom mechanics only for a concrete semantic or operational gap; keep business policy explicit. A wrapper should add domain meaning or adaptation, not merely rename a library call.
 
 Choose the smallest complete change that delivers the requested behavior. New abstractions, dependencies, configuration, and adjacent cleanup need a present requirement. Preserve established contracts and technical choices even when another design is personally preferable.
 
