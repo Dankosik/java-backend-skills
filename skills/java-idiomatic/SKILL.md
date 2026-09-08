@@ -13,4 +13,4 @@ Choose the representation that tells that story directly. Records fit component-
 
 Preserve the details a tidy rewrite can accidentally change: lazy evaluation, null acceptance, collection order and mutability, equality, rounding, time boundaries, and exception causes. Never put required effects in a stream stage that may be skipped.
 
-Finish with the smallest change that makes intent explicit and a focused check of the contract it could have disturbed. State actual validation; avoid unrelated style churn.
+Finish with the smallest change that makes intent explicit and a focused check that would fail for a plausible violation of the contract it could have disturbed. State actual validation; avoid unrelated style churn.

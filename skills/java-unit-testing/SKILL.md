@@ -5,7 +5,7 @@ description: "Behavior. Use when writing or improving JUnit Jupiter tests, Mocki
 
 # Java Unit Testing
 
-**Behavior first.** Find the observable promise this change could break. Choose inputs that distinguish a correct implementation from a plausible wrong one; calculate expected results independently of the production algorithm. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Behavior first.** Find the observable promise this change could break. Choose fixtures whose values and relationships distinguish correct behavior from a plausible defect; calculate expected results independently of the production algorithm. Preserve relevant contract distinctions through observation and assertion: decoding, normalization, or helpers must not make incorrect results appear correct. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
 
 Read the existing tests and build before choosing APIs. Preserve the project's Java and test-library baseline. Construct an ordinary component directly; an annotation on its class does not make every test a Spring test.
 
