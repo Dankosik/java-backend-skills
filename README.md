@@ -8,25 +8,24 @@ One `SKILL.md` per skill. No reference libraries, setup ceremony, mandatory proc
 
 ## Install
 
-Use the [Agent Skills CLI](https://github.com/vercel-labs/skills) and choose your coding agent and desired skills:
+Versioned release: [v1.0.0](https://github.com/Dankosik/java-backend-skills/releases/tag/v1.0.0).
+Install selected skills, or the entire pack, into your current project:
 
 ```sh
-npx skills add Dankosik/java-backend-skills
+npx skills@1.5.25 add "Dankosik/java-backend-skills#v1.0.0" --agent codex --skill '*' --copy
 ```
 
-Install only the testing skills:
+Use `--skill java-implement` for one skill, or `--agent claude-code` for Claude
+standalone placement. Node.js >=22.20.0 is required by this installer, not by
+the skill instructions.
 
-```sh
-npx skills add Dankosik/java-backend-skills --skill java-unit-testing spring-testing
-```
+For native Claude Code and Codex installation, add the
+[Dankosik marketplace](https://github.com/Dankosik/agent-skills-marketplace), then
+install `java-backend-skills@dankosik-skills`. The author catalog is available independently
+of review for either provider's public directory.
 
-Or install from a local checkout:
-
-```sh
-npx skills add ./java-backend-skills
-```
-
-You can also copy any individual skill folder into the skills directory supported by your agent. Each folder is self-contained. There are no runtime dependencies; Node.js is needed only if you choose the CLI installer.
+[All installation methods, updates and rollback](docs/distribution.md) ·
+[Versioning](docs/versioning.md) · [Changelog](CHANGELOG.md)
 
 ## Choose the decision
 
