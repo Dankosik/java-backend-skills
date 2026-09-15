@@ -1,6 +1,6 @@
 {
   "name": "java-backend-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Independent skills for idiomatic Java and Spring backend development.",
   "author": {
     "name": "Dankosik",
@@ -21,9 +21,9 @@
     "shortDescription": "Independent skills for idiomatic Java and Spring backend development.",
     "longDescription": "15 focused, independent skills for Java development. Implement clear requirements, preserve project choices, and use focused evidence for testing and performance.",
     "defaultPrompt": [
-      "Use java-implement to implement this specification with our existing technical choices.",
-      "Help me write focused tests for this Java change.",
-      "Investigate the cause of this Java performance problem."
+      "Implement this Java requirement within our existing technical choices. Complete the relevant checks and fix failures caused by the change.",
+      "Add focused tests for this Java change using the smallest boundary that preserves the behavior under test.",
+      "Assess this Java performance concern without changing code. Separate supported findings from hypotheses and do not claim unmeasured improvements."
     ],
     "brandColor": "#E66A32",
     "developerName": "Dankosik",

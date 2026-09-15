@@ -5,12 +5,12 @@ description: "Resolution. Use for Maven or Gradle build failures, toolchain chan
 
 # Java Build
 
-**Resolution.** Explain what the build actually selects before changing what it declares. Inspect the wrapper, selected JDKs, compiler target, plugins, annotation processors, and resolved dependency graph. Reproduce the relevant task; an IDE's cached success can hide a broken build. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Resolution.** Explain what the build actually selects before changing what it declares. Identify the failing task or requested build change and inspect the effective configuration that can explain it. Examine toolchains, processors, dependency resolution, or packaging when the evidence points to that layer, not as a universal preflight. Preserve requirements and settled technical choices unless the task explicitly changes them.
 
-Separate the JVM running the build, the compilation toolchain, and the application runtime. `--release` constrains target APIs; source/target alone may not. Missing generated classes after a JDK change may reflect processor configuration rather than application code. Use configuration supported by the project's Maven or Gradle generation.
+Use the project's wrapper and relevant task; an IDE's cached success can hide a broken build. Separate the JVM running the build, the compilation toolchain, and the application runtime. `--release` constrains target APIs; source/target alone may not. Missing generated classes after a JDK change may reflect processor configuration. Use configuration supported by the project's Maven or Gradle generation.
 
-Trace dependency conflicts to their origin. Declare directly used libraries explicitly in the consuming module rather than relying on transitive presence; preserve BOM or platform version management. Check why security overrides and exclusions exist before changing them. A parent update can change the entire effective graph.
+For dependency conflicts, trace resolution to its origin. Declare directly used libraries in the consuming module rather than relying on transitive presence; preserve BOM or platform version management. Check why security overrides and exclusions exist before changing them. A parent update can change the entire effective graph.
 
 Preserve repeatable inputs and their trust checks. Version locks and artifact verification solve different problems; neither justifies disabling the other to pass a download. Generate and review metadata rather than inventing it.
 
-Keep the build system, DSL, and runtime commitments unless changing them is the task. Validate the layer affected: processing, compilation, tests, target-runtime linkage, or packaging. For dependency changes, inspect the resulting graph and relevant vulnerability evidence. Report actual versions and checks, not an unsupported “build fixed.”
+For diagnosis or review, explain the affected layer without editing. For changes, keep the build system, DSL, and runtime commitments unless changing them is the task. Validate the affected layer and required project checks, not every build phase. For dependency changes, inspect the resulting graph and relevant vulnerability evidence. Report actual versions, checks, and blockers, not an unsupported “build fixed.”

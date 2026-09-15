@@ -9,6 +9,7 @@ One `SKILL.md` per skill. No reference libraries, setup ceremony, mandatory proc
 ## Install
 
 Versioned release: [v1.0.0](https://github.com/Dankosik/java-backend-skills/releases/tag/v1.0.0).
+The source prepares 1.0.1; the commands below remain pinned to the published release until a new release is available.
 Install selected skills, or the entire pack, into your current project:
 
 ```sh
@@ -31,23 +32,27 @@ of review for either provider's public directory.
 
 | Skill | Leading concept | Use it for |
 | --- | --- | --- |
-| [java-implement](skills/java-implement/SKILL.md) | Execution | Turn clear requirements or a finished technical design into working code |
-| [java-idiomatic](skills/java-idiomatic/SKILL.md) | Contracts | Clear Java implementations and behavior-preserving cleanup |
-| [java-design](skills/java-design/SKILL.md) | Cohesion | Responsibilities, domain models, and useful abstractions |
+| [java-implement](skills/java-implement/SKILL.md) | Execution | Implement requested behavior within existing contracts and technical choices |
+| [java-idiomatic](skills/java-idiomatic/SKILL.md) | Contracts | Representation and transformation choices where semantics or readability need attention |
+| [java-design](skills/java-design/SKILL.md) | Cohesion | Responsibilities, domain boundaries, and abstractions for a concrete change |
 | [java-concurrency](skills/java-concurrency/SKILL.md) | Lifetime | Shared state, executors, virtual threads, cancellation, and bounds |
 | [java-debugging](skills/java-debugging/SKILL.md) | Causality | Bugs, startup failures, hangs, and flaky behavior |
-| [java-performance](skills/java-performance/SKILL.md) | Evidence | Measured latency, throughput, CPU, memory, and startup improvements |
+| [java-performance](skills/java-performance/SKILL.md) | Evidence | Code assessment, measurement, or verified resource improvements, as requested |
 | [java-build](skills/java-build/SKILL.md) | Resolution | Maven, Gradle, toolchains, processors, and dependencies |
 | [spring-boot](skills/spring-boot/SKILL.md) | Composition | Bean wiring, configuration, auto-configuration, and startup |
 | [spring-web](skills/spring-web/SKILL.md) | Translation | MVC/WebFlux endpoints, validation, serialization, and HTTP contracts |
-| [spring-data](skills/spring-data/SKILL.md) | Atomicity | Queries, persistence, transactions, migrations, and data races |
+| [spring-data](skills/spring-data/SKILL.md) | Atomicity | Changes to queries, mappings, transactions, concurrency control, or migrations |
 | [spring-security](skills/spring-security/SKILL.md) | Authorization | Trusted identity, resource access, tenancy, and browser security |
 | [spring-integrations](skills/spring-integrations/SKILL.md) | Delivery semantics | External calls, retries, messages, jobs, and caches |
 | [spring-observability](skills/spring-observability/SKILL.md) | Operability | Metrics, traces, logs, probes, and shutdown |
 | [java-unit-testing](skills/java-unit-testing/SKILL.md) | Behavior | JUnit Jupiter, Mockito, AssertJ, and deterministic unit tests |
 | [spring-testing](skills/spring-testing/SKILL.md) | Mechanism | Spring slices, application tests, Testcontainers, and real infrastructure |
 
-Use `java-implement` when the task is clear and the work is to implement it. Use a specialist when its particular decision needs attention. Each preserves supplied requirements and settled technical choices; none requires a design phase. Debugging identifies an uncertain cause; performance work measures a resource claim. Unit tests isolate ordinary behavior; Spring tests retain the framework or infrastructure mechanism being tested.
+Use `java-implement` when the task is clear and the work is to implement it. Use a specialist when its particular decision needs attention. Each preserves supplied requirements and settled technical choices unless the task explicitly changes them; none requires a design phase. Debugging identifies an uncertain cause; performance work distinguishes code assessment from measured claims. Unit tests isolate ordinary behavior; Spring tests retain the framework or infrastructure mechanism being tested.
+
+Select skills for decisions that need their guidance, not merely because the repository uses Java or Spring. A specialist is not a mandatory implementation stage. Combine skills when distinct parts of the task need them; there is no fixed one-skill limit or required sequence.
+
+A skill supplements the requested task; it does not expand permission to edit or require every topic in its body to be investigated. Review and diagnosis produce findings unless changes are requested. Implementation continues through appropriate checks and fixes for failures it caused, not just a first patch. Verification covers the affected property and required project gates. Unavailable evidence remains explicitly unverified, not a reason to claim success or invent unrelated work.
 
 ## Use
 
@@ -64,6 +69,10 @@ These skills adapt to the repository's Java release and Spring generation. They 
 ## Contribute
 
 Keep each skill independent and decision-focused. Prefer an established concept over a new glossary, a discriminating trigger over a capability catalog, and an observable outcome over a long checklist. Improve wording against a realistic task that exposed a weakness. Keep version lookups and API tutorials out of the skill.
+
+Keep essential standalone guidance in the skill, not in a mandatory shared file or README lookup. The current packaging contract is `SKILL.md` plus `LICENSE`; additional resources need a demonstrated need and corresponding packaging and installation checks, not a speculative directory layout.
+
+For semantic changes, use the affected [behavioral evaluation scenarios](docs/evaluation.md), including natural requests that do not name a skill. Record the model, fixture, instruction revision, and observed result. Compare correctness and scope before tool counts or elapsed time; do not encode a mandatory tool-call sequence. These authoring materials are not installed with individual skills.
 
 The pack uses the [Agent Skills format](https://agentskills.io/specification). Structural validity and a few useful examples do not establish a universal improvement across models.
 

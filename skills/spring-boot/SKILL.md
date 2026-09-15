@@ -5,7 +5,7 @@ description: "Composition. Use when Spring Boot bean wiring, configuration, auto
 
 # Spring Boot
 
-**Composition.** Make construction and configuration explainable. Start with the project's actual Boot generation and trace how the affected object is created, which settings reach it, and who owns its lifetime. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Composition.** Make construction and configuration explainable. Start with the project's actual Boot generation and trace how the affected object is created, which settings reach it, and who owns its lifetime. Preserve requirements and settled technical choices unless the task explicitly changes them.
 
 Use the container where it supplies a useful boundary. Prefer constructor dependencies and ordinary objects for ordinary calculations. A dependency cycle is a question about responsibilities before it is a question about injection tricks. Mutable request state does not belong to a shared singleton.
 
@@ -13,4 +13,4 @@ Treat auto-configuration as existing implementation. Before adding a bean or ena
 
 Give related configuration a typed home. Decide which values are required, defaulted, or absent; validate that decision where settings enter the application. Constructor-bound properties need properties registration, not ordinary component construction. A dummy secret is not a meaningful default.
 
-When changing wiring, prove the intended composition: the right component exists with the right settings, and the relevant invalid configuration fails clearly. Compilation alone cannot establish either. Report what was exercised and preserve unrelated framework choices.
+For diagnosis or review, explain the composition issue without editing. When changing wiring or settings, check the changed composition and its relevant invalid configuration using the smallest existing context boundary. Compilation alone cannot prove either. Report what was exercised and any unavailable verification; do not audit unrelated beans or create a full test environment merely to finish.
