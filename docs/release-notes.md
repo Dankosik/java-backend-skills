@@ -1,16 +1,25 @@
-# Java Backend Skills 1.0.0
+# Java Backend Skills 1.0.1
 
-First versioned release of this independent skill pack. Existing SKILL.md
-instructions are unchanged. This release adds portable and native plugin
-metadata, standalone license notices, reproducible installation instructions,
-and a verified distribution archive.
+Release candidate; this document does not assert that the version is published.
 
-- One package version, with the same skill content for every supported channel.
-- Install individual skills using Skills CLI or GitHub CLI.
-- Install the whole pack through the Dankosik Claude/Codex marketplace.
-- Archive checksums and per-file hashes identify the exact release commit.
+This patch refines skill selection, task scope, and completion within the existing
+15-skill contract. Review and diagnosis no longer imply editing. Implementation
+continues through appropriate verification and fixes for introduced failures,
+while specialist checks stay tied to the property changed by the task.
 
-See [installation and updates](https://github.com/Dankosik/java-backend-skills/blob/v1.0.0/docs/distribution.md).
-An author marketplace is available without curated-directory approval. OpenAI
-and Anthropic public-directory listings have their own submission and review
-process; this release does not claim either listing has been approved.
+Technical evidence requirements remain intact: weaker mocked boundaries do not
+prove database or security mechanisms, and unavailable execution is not a pass.
+Skill names, paths, independent installation, and environment requirements are
+unchanged. Native manifests derive from the canonical package metadata.
+
+Authoring-only behavioral scenarios cover natural selection, task modes, scoped
+verification, and completion. Structural CI and installation checks do not run
+these scenarios; no cross-model quality or speedup claim follows from packaging.
+Record focused behavioral results before publishing semantic instruction changes.
+
+The README installation commands remain pinned to published v1.0.0. Update those
+pins and the reviewed author marketplace entry when 1.0.1 is actually published;
+do not move existing tags or silently update consumers from main.
+
+OpenAI and Anthropic public-directory listings have their own submission and
+review process; this candidate does not claim either listing has been approved.

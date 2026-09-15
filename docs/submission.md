@@ -1,8 +1,10 @@
-# Submission packet — Java Backend Skills 1.0.0
+# Submission packet — Java Backend Skills 1.0.1 candidate
 
 These are reviewer-ready listing details and proposed evaluation scenarios.
-They are not a claim that either provider has approved or published this plugin,
-or that these model-behavior scenarios were executed during packaging validation.
+They are not a claim that this candidate is released, that either provider has
+approved or published this plugin, or that model-behavior scenarios were executed
+during packaging validation. See the [behavioral evaluation guide](evaluation.md)
+for natural-request cases, pinned fixtures, and prior/candidate comparisons.
 
 ## Listing
 
@@ -15,9 +17,9 @@ or that these model-behavior scenarios were executed during packaging validation
 - Terms/license: https://github.com/Dankosik/java-backend-skills/blob/main/LICENSE
 - Logo: assets/logo.png (512×512)
 - Kind: skills only; no MCP, hooks, account integration, bundled executable, or publisher data service
-- Archive: `java-backend-skills-1.0.0.zip` from this GitHub Release
+- Candidate archive: `java-backend-skills-1.0.1.zip`; publish only after the release requirements are met
 - Starter prompts: `.codex-plugin/plugin.json` → `interface.defaultPrompt`
-- Release note: first versioned distribution; skill instruction text is unchanged
+- Release note: clarify activation, task modes, scoped verification, and completion within the existing 15-skill contract
 
 ## Owner-controlled fields still required for a public-directory submission
 
@@ -28,6 +30,9 @@ credentials are required to use the skills, and no demo credentials should be
 invented. Confirm the provider's policy attestations personally before submission.
 
 ## Five positive scenarios
+
+These explicitly select a skill. Use the evaluation guide separately to test
+implicit selection; success here does not establish routing quality.
 
 ### 1. Implement a settled small requirement
 
@@ -62,7 +67,7 @@ the smallest compatible approach for Java."
 
 Fixture: the two explicit invariants. Expected: preserve both invariants, identify
 mutation/aliasing costs, and choose a distinguishing unsorted example. Avoid a
-blanket assertion that every copy or loop is bad.
+blanket assertion that every copy or loop is bad. Review does not authorize edits.
 
 ### 4. Investigate a performance claim honestly
 
@@ -72,7 +77,8 @@ observations and explain how you would compare a change."
 
 Fixture: no fabricated benchmark data. Expected: workload/metric/baseline and
 measurements that distinguish causes; no invented speedup or speculative cache,
-parallelism or allocator change.
+parallelism or allocator change. An assessment does not require constructing a
+benchmark project or changing application code.
 
 ### 5. Simplify a redundant abstraction
 
@@ -82,7 +88,8 @@ callers or implementations. Assess whether it should stay."
 
 Fixture: the complete responsibility description. Expected: evaluate actual
 caller knowledge and current need, propose the smallest justified structure,
-and preserve behavior. Do not create another layer merely for naming symmetry.
+and preserve behavior. Do not create another layer merely for naming symmetry
+or edit files when only an assessment was requested.
 
 ## Three negative scenarios
 

@@ -1,16 +1,18 @@
 ---
 name: spring-data
-description: "Atomicity. Use when Spring queries, persistence mappings, transactions, or migrations affect consistency, concurrency, or data access."
+description: "Atomicity. Use when changing or reviewing a Spring query, persistence mapping, transaction boundary, concurrency control, or schema migration."
 ---
 
 # Spring Data
 
-**Atomicity.** Start with the invariant: what must remain true when two requests overlap or one operation fails halfway through? Locate the database state and transaction boundary that can enforce it. Preserve the project's persistence approach and resolved dependencies. Honor supplied requirements and settled technical choices; resolve only what the task leaves open.
+**Atomicity.** Identify the persistence decision this task changes: result shape and fetching, a consistency invariant, or a schema transition. Preserve the project's persistence approach, resolved dependencies, requirements, and settled choices unless the task explicitly changes them. Investigate the relevant branch, not every data-access concern.
 
-Put the unit of work around the operation that needs consistency. Verify the boundary is actually invoked through Spring; self-invocation can bypass transactional interception. Understand rollback behavior before catching exceptions. `readOnly` is not a guarantee that writes are impossible, and an external HTTP effect is not rolled back with the database.
+For consistency changes, ask what must remain true when requests overlap or an operation fails halfway through. Put the unit of work around that operation. Verify the boundary is invoked through Spring; self-invocation can bypass transactional interception. Understand rollback before catching exceptions. `readOnly` does not guarantee writes are impossible, and an external HTTP effect is not rolled back with the database.
 
-Use database constraints, conditional writes, or locking where the invariant requires arbitration. A preflight existence check cannot settle a race. Choose conflict behavior deliberately instead of adding blind retries.
+Use database constraints, conditional writes, or locking where an invariant requires arbitration. A preflight existence check cannot settle a race. Choose conflict behavior deliberately instead of adding blind retries.
 
-Work backward from the required result to the query and fetch plan. Fetch what the operation needs, with bounded cardinality; inspect SQL rather than fixing every association to eager loading. Keep entity identity and lifecycle separate from DTO value semantics. Use the existing migration mechanism as schema authority.
+For query or mapping changes, work backward from the required result to the query and fetch plan. Fetch what the operation needs, with bounded cardinality; inspect relevant SQL rather than making every association eager. Keep entity identity and lifecycle separate from DTO value semantics. A projection change alone does not require a concurrency audit.
 
-Verify the claim at its real boundary: rollback through the actual bean, fetching through emitted SQL, and concurrency against the relevant database. Repository mocks cannot establish those properties. Report evidence and what remains unverified.
+For schema changes, use the existing migration mechanism as authority and examine the affected data and compatibility requirements; do not introduce another migration system.
+
+For review, explain the relevant risk without editing. For changes, verify the affected property at its real boundary: rollback through the actual bean, fetching through emitted SQL, or constraints and concurrency against the relevant database. Choose applicable checks, not the whole list. Repository mocks cannot establish those properties. Reuse valid evidence, respect required checks, and report unavailable database verification as a limitation rather than a pass or an invitation to build an unrequested environment.
