@@ -13,6 +13,8 @@ Ask what each mock isolates. Use real values and collections; mock a collaborato
 
 Make the failure explain the rule. Parameterize inputs sharing one rule; separate different behaviors. Control time and randomness when relevant, bound asynchronous completion, and propagate worker failures. A test that returns before its assertion runs proves nothing.
 
+For a reproducible defect, establish that the regression check fails for the intended behavior before relying on its passing result after the fix. A compilation or setup failure is not that evidence; report when the before-state cannot be exercised.
+
 Challenge the test: could the original defect survive it, or could a harmless refactor break it? Strengthen the former; remove implementation choreography from the latter. Keep integration claims outside the reach of mocked dependencies.
 
 For review, explain test gaps without editing. When writing tests, run the relevant existing task within environment permissions, confirm discovery, and fix failures caused by the change. State the result and any untested boundary; unavailable execution is not a pass or a reason to invent another test framework.
