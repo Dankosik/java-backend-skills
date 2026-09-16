@@ -11,7 +11,7 @@ For outbound calls, trace intent through effect to acknowledgement. Distinguish 
 
 Where retries or background work are involved, budget attempts, elapsed time, concurrency, and queued work together. Place retry policy where effect semantics are known, using the project's actual framework and client versions. Recovery should reduce failure impact without multiplying downstream load.
 
-For messages and jobs, follow commit, publication, acknowledgement, redelivery, and process death. Choose durability and coordination to match the promised outcome. Local events and scheduling have local lifetimes; broker guarantees end at their documented boundary.
+For messages and jobs, follow commit, publication, acknowledgement, redelivery, and process death. Choose durability and coordination to match the promised outcome. Where deduplication is needed, examine concurrent claims and the gap between recording completion and performing the effect; a check-then-mark sequence cannot close either gap. Reusing an operation identity with different request meaning must not silently replay success. Local events and scheduling have local lifetimes; broker guarantees do not by themselves establish exactly-once business effects.
 
 For caches, identify the authority, key identity, freshness contract, and invalidation owner. Consider concurrent stale refill and origin load during failure when relevant. Let a measured need justify introducing a cache.
 

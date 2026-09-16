@@ -74,6 +74,13 @@ Keep essential standalone guidance in the skill, not in a mandatory shared file 
 
 For semantic changes, use the affected [behavioral evaluation scenarios](docs/evaluation.md), including natural requests that do not name a skill. Record the model, fixture, instruction revision, and observed result. Compare correctness and scope before tool counts or elapsed time; do not encode a mandatory tool-call sequence. These authoring materials are not installed with individual skills.
 
+[Maintainer instructions](AGENTS.md), [source decisions and review protocol](docs/instruction-design.md),
+and [frozen eval fixtures](evals/README.md) support that workflow. The offline
+`python scripts/evaluate.py check` validates 30 routing probes and eight fixture
+specifications. `prepare` creates comparable workspaces and a `not_run` record;
+it does not execute a model or establish better behavior. Model comparisons
+remain separate from lightweight distribution CI.
+
 The pack uses the [Agent Skills format](https://agentskills.io/specification). Structural validity and a few useful examples do not establish a universal improvement across models.
 
 ## Acknowledgements

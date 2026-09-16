@@ -2,6 +2,10 @@
 
 ## 1.0.1 — Unreleased
 
+- Tighten existing guidance on unrelated edits, untrusted task data, incremental builds, regression evidence, rolling migrations, and duplicate effects without adding a mandatory workflow.
+- Add maintainer-only instructions, source decisions, and bounded evidence-based review with an explicit fallback when subagents are unavailable.
+- Add 30 routing probes, eight frozen task fixtures, and an offline preparation/validation tool with content fingerprints and no implicit model execution. Harness tests are not behavioral evaluation results.
+
 - Clarify activation for implementation, idiomatic representation, design, persistence, and performance work; description changes are behavioral, not cosmetic.
 - Separate review and diagnosis from editing, and let explicit change requests supersede otherwise settled technical choices.
 - Scope inspection and verification to the affected property without weakening transaction, security, or other mechanism-specific evidence requirements.
